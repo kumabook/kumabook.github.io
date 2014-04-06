@@ -1,0 +1,8 @@
+name: Hiroki Kumamoto's blog
+markdown: redcarpet
+pygments: true
+auto: true
+port: 2000
+
+exclude: ["Gemfile", "Gemfile.lock", ".gitignore"]
+permalink: /:year/:i_month/:i_day/:title.html
