@@ -1,0 +1,17 @@
+---
+layout: post
+title:  "I bought apple tv!"
+date:   2014-04-10 23:07:00
+categories: diary, english
+---
+
+Today, I bought apple tv.
+I almost like it.
+However, I think there are few points of improvemnt about it.
+
+* iPad app "Remote" is only for itunes library,
+  it should support third party app (hulu).
+* Many app doesn't auto play.
+* we can't develop apple tv application
+* input with remote control is very disgusting.
+
