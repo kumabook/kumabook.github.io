@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "My first time to challenge google code jam"
-date:   2014-04-12 23:07:00
+date:   2014-04-12 23:07:00 UTC+9
 categories: diary, english
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Review of 2014 Qulification round problem A"
-date:   2014-04-14 10:07:00
+date:   2014-04-14 10:07:00 UTC+9
 categories: programing, algorithm
 ---
 

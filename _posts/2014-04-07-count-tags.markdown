@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Count elememts with JavaScript"
-date: 2014-04-07 22:45:22
+date: 2014-04-07 22:45:22 UTC+9
 categories: html, javascripts
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Get started in blogging with github+jekyll"
-date:   2014-04-06 23:45:22
+date:   2014-04-06 23:45:22 UTC+9
 categories: others
 ---
 
