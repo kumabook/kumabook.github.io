@@ -18,7 +18,7 @@ categories: micon, stm32f4discovery
  だいたいやりたいことはこれを弄っていけばいけそう。
  とはいえ、まずはLチカだな。
 
-``` Makefile
+```
 DEBUG  = true
 
 STM_FW = ./STM32F4-Discovery_FW_V1.1.0
@@ -171,4 +171,5 @@ clean:
 	rm -f $(OUTPATH)/$(BIN_NAME).elf
 	rm -f $(OUTPATH)/$(BIN_NAME).hex
 	rm -f $(OUTPATH)/$(BIN_NAME).bin
+
 ```
