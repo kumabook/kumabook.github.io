@@ -1,7 +1,10 @@
-name: Hiroki Kumamoto's blog
+name: Hiroki Kumamoto's page
 markdown: redcarpet
-pygments: true
-auto: true
+highlighter: pygments
+paginate: 8
+description: Hiroki Kumamoto's page
+intro: Hiroki Kumamoto's page
+disqus_shortname: kumabook
 port: 2000
 
 exclude: ["Gemfile", "Gemfile.lock", ".gitignore"]
