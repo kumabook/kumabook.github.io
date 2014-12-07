@@ -1,5 +1,7 @@
 name: Hiroki Kumamoto's page
 markdown: redcarpet
+redcarpet:
+    extensions: [tables,autolink,strikethrough]
 highlighter: pygments
 paginate: 8
 description: Hiroki Kumamoto's page
