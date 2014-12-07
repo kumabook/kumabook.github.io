@@ -7,7 +7,9 @@ title: Playground
 ## Audio signal processing
 
 ## Algorism visualization
-### Stack & Queues
+### Basic data structure
+* [Stack](./playground/vector.html)
+
 ### Sort
 * Selection sort
 * Insertion sort
