@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  What's the best way to mange band website
-date:   2014-12-07 00:00:00 UTC+9
+date:   2014-12-10 00:00:00 UTC+9
 categories: diary
 ---
 
@@ -22,4 +22,4 @@ categories: diary
 - Octopress
 - middleman
 
-生のhtmlなど最近のモダンツールも選択肢にできるそうだ。
+生のhtmlなど最近のモダンツールも選択肢にできそうだね。
