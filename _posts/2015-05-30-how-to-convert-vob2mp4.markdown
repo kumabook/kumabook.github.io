@@ -54,7 +54,7 @@ project = hb.input(VOLUME)
 
 disc = project.scan
 disc.titles[1].all_chapters.each {|chap|
-  unless chap.nil? ||  chap.number == 1
+  unless chap.nil?
     puts 'start chapter-' + chap.number.to_s
     project.title(1).preset('High Profile').chapter(chap.number.to_s + '-' + chap.number.to_s).output(DIST_DIR + '/' + PREFIX + chap.number.to_s + '.mp4')
   end
