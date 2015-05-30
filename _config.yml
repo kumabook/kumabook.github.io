@@ -1,14 +1,16 @@
-name: Hiroki Kumamoto's page
+name: go beyond my wish
 markdown: redcarpet
 redcarpet:
     extensions: [tables,autolink,strikethrough]
 highlighter: pygments
 paginate: 8
-description: Hiroki Kumamoto's page
-intro: Hiroki Kumamoto's page
+description: go beyond my wish
+intro: go beyond my wish
 disqus_shortname: kumabook
 port: 2000
 
+twitter_username: kumabook
+github_username:  kumabook
 exclude: ["Gemfile", "Gemfile.lock", ".gitignore"]
 permalink: /:year/:i_month/:i_day/:title.html
 
