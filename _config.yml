@@ -11,3 +11,5 @@ port: 2000
 
 exclude: ["Gemfile", "Gemfile.lock", ".gitignore"]
 permalink: /:year/:i_month/:i_day/:title.html
+
+ga_tracking_id: UA-63569468-1
