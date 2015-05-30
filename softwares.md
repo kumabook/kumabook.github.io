@@ -4,6 +4,14 @@ title: My softwares
 ---
 # Softwares
 
+
+## iOS Application
+* <img src="http://musicfav.github.io//images/site-logo.png" width="64"> MusicFav
+  * MusicFav is a Music RSS Reader.
+  * [Web Site](http://musicfav.github.io/)
+  * [App store](https://itunes.apple.com/us/app/musicfav/id957250852?l=ja&ls=1&mt=8/) (not ready)
+  * [Source](https://github.com/kumabook/MusicFav)
+
 ## Firefox addon
 * ![Sticky Notes](https://addons.cdn.mozilla.net/user-media/addon_icons/107/107189-64.png?modified=1404840808) Stikynotes
   * Sticky Notes is a firefox addon that enable firefox to put sticky to web page.
