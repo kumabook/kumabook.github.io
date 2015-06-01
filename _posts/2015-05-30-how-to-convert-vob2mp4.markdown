@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  VOBファイルをmp4に変換する方法
+title:  DVDをチャプターごとにmp4に変換する
 date:   2015-05-30 00:00:00 UTC+9
 categories: diary, tips
 ---
