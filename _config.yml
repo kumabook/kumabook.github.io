@@ -1,11 +1,11 @@
-name: go beyond my wish
+name: Go beyond my wish
 markdown: redcarpet
 redcarpet:
     extensions: [tables,autolink,strikethrough]
 highlighter: pygments
 paginate: 8
-description: go beyond my wish
-intro: go beyond my wish
+description: Go beyond my wish
+intro: Go beyond my wish
 disqus_shortname: kumabook
 port: 2000
 
