@@ -1,0 +1,20 @@
+---
+layout: default
+title: Playground
+---
+
+<script type="text/javascript"
+         src="/kumagorithm/javascripts/dist/kumagorithm.js">
+</script>
+<script type="text/javascript">
+window.onload = function() {
+  var container = document.getElementById('playground-container');
+  window.addEventListener('hashchange', function() {
+    var route = window.location.hash.substr(1);
+    kumagorithm.render(container, route)
+  });
+  var route = window.location.hash.substr(1);
+  kumagorithm.render(container, route);
+}
+</script>
+<div id="playground-container"></div>
