@@ -4,14 +4,12 @@ title: Playground
 ---
 
 # Playground
-## Audio signal processing
-
 ## Algorism visualization
 ### Basic data structure
-* [Stack](./playground/vector.html)
+* [Resizing array stack](./playground/index.html#stack)
 
 ### Sort
-* Selection sort
+* [Selection sort](./playground/index.html#selection-sort)
 * Insertion sort
 * Shell sort
 * Shuffling sort
