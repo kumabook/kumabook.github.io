@@ -5,7 +5,7 @@ date:   2015-06-20 00:00:00 UTC+9
 categories: essay
 ---
 
-最近[http://gihyo.jp/dev/serial/01/comparators/0005](こんな記事)を読んだ。
+最近[こんな記事](http://gihyo.jp/dev/serial/01/comparators/0005)を読んだ。
 プログラミングの「体力」と「スキル」である。
 
 自分はドラマーなので、ドラムに当てはめて考えてみたい。
@@ -21,6 +21,10 @@ categories: essay
 
 
 ドラマーの体力を高めるもの、これは疑いようもなく「基礎練」である。
+
+<img src="http://cdn-ak.f.st-hatena.com/images/fotolife/u/udqn/20150414/20150414164509.jpg">
+
+
 メトロノームを使って様々なテンポで自分の狙った位置に音を入れる。
 どんな難しいフィルインやフレーズも分解していくと「基礎練」ができているかに行き着く。
 フレーズが叩けないときは、結局基礎練をすることになる。
@@ -54,11 +58,11 @@ categories: essay
  去年Courseraでアルゴリズムの授業を受けた。あれは英語の勉強にもなって非常によかった。
  本当は続編の講義を受けたいのだが、課題が重すぎるのでなるべく暇なときに受けたいということもありまだ受けれていない。
  半年以上経ったし、復習がてら講義ではJavaで実装されていたものをJavaScriptにポーティングするという
- [https://github.com/kumabook/kumagorithm](試み)を始めた。
+ [試み](https://github.com/kumabook/kumagorithm)を始めた。
  JavaScriptにしたのは自分が一番得意な言語というのとブラウザ上で視覚化したというのがあった。
  今のところ
- [http://kumabook.github.io/playground/index.html#stack](Stack)とか
- [http://kumabook.github.io/playground/index.html#selection-sort](Selection Sort)
+ [Stack](http://kumabook.github.io/playground/index.html#stack)とか
+ [Selection Sort](http://kumabook.github.io/playground/index.html#selection-sort)
  とかをやってみたが、なかなかいい感じに視覚化できた。
 
  成果が見えるとモチベーションがあがる。
