@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Selection sort
+title:  Basic sort
 date:   2015-07-08 00:00:00 UTC+9
 categories: programming, algorithm
 ---
