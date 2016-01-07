@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  
+title: アルゴリズムII受講中
 date:   2015-11-05 00:00:00 UTC+9
 categories: programming, algorithm
 ---
