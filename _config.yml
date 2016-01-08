@@ -1,11 +1,11 @@
-name: Go beyond my wish
+name: Keep Tryin'!  Keep Seachin'!
 markdown: redcarpet
 redcarpet:
     extensions: [tables,autolink,strikethrough]
 highlighter: pygments
 paginate: 8
-description: Go beyond my wish
-intro: Go beyond my wish
+description: hiroki kumamoto's diary
+intro: Keep Tryin'!  Keep Seachin'!
 disqus_shortname: kumabook
 port: 2000
 
