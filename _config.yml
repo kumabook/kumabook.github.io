@@ -1,13 +1,17 @@
+kramdown:
+  input: GFM
+  hard_wrap: false
+gems:
+ - jekyll-gist
+ - jekyll-paginate
 name: Keep Tryin'!  Keep Seachin'!
-markdown: redcarpet
-redcarpet:
-    extensions: [tables,autolink,strikethrough]
-highlighter: pygments
-paginate: 8
+markdown: kramdown
 description: hiroki kumamoto's diary
 intro: Keep Tryin'!  Keep Seachin'!
 disqus_shortname: kumabook
 port: 2000
+
+paginate: 5
 
 twitter_username: kumabook
 github_username:  kumabook
