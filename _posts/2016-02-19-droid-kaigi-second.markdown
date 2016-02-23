@@ -8,7 +8,7 @@ categories: programming
 1日目に引き続き、Droidkaigi２日目に行ってきた。
 
 
-## 基調講演
+## [基調講演](http://yaraki.github.io/slides/droidkaigi2016/#1)
 
 朝だらだらしていたら、後半しか見れなかったので割愛。
 
@@ -23,7 +23,7 @@ View の根本的な話。からのカスタマイズ、パフォーマンスtip
 スピーカーがIS03使ってるからFroyoサポートしてるとかなかなかロックだった。
 Viewフレームワークの復習にもなったし、何よりできる人はやっぱりフレームワークの根幹のドキュメント、ソースは読んでるなっていうのが実感できたのが一番の収穫。
 
-## パフォーマンスを追求したAndroidアプリを作るには
+## [パフォーマンスを追求したAndroidアプリを作るには](https://speakerdeck.com/t_egg/droidkaigi-2016-pahuomansuwozhui-qiu-sitaandroidapuriwozuo-runiha)
 
 電源消費系と速度の計測の話が主。単にこうすれば良いよっていうだけでなく、
 コストパフォーマンスも考慮して最適化のtipsを紹介してくれていた。日頃から計測しましょう。
@@ -36,7 +36,7 @@ Viewフレームワークの復習にもなったし、何よりできる人は�
 ふと思ったのだが、パフォーマンス計測をテスト中によしなに測ってくれて集計してくれるツールはないものなのだろうか。
 CIで勝手に測って集計してくれれば、あとでどのタイミングでパフォーマンスが悪くなったのかわかるし、めちゃくちゃ敷居下がりそうなのだが。
 
-## Support Library 総復習
+## [Support Library 総復習](https://speakerdeck.com/androhi/support-library-zong-fu-xi)
 
  Support Libarry総復習だった。
 
@@ -45,7 +45,7 @@ CIで勝手に測って集計してくれれば、あとでどのタイミング
  雰囲気でsupport library使っていたので、個人的にはめちゃくちゃためになったセッション。
 こういうドキュメントみればいいんだけど、なんとなく腰が上がらなかったところをまとめてくれるのは非常に助かる。
 
-## What's the difference between JavaScript and Java?
+## [What's the difference between JavaScript and Java?](https://speakerdeck.com/izumin5210/whats-the-difference-between-javascript-and-java)
 
   JSのフレームワークの歴史とそれをAndroid持ってきて見たよという話。
 
@@ -62,7 +62,7 @@ JS周りの説明が若干雑だった気が。というかdroiduxの実装と�
 
 うん、まあそうだよねっていう話だった。
 
-## 5 年続く 「はてなブックマーク」 アプリを継続開発する技術
+## [5 年続く 「はてなブックマーク」 アプリを継続開発する技術](http://www.slideshare.net/YuNobuoka/5-58454512)
 
  はてなブックマークをしばらく開発メンテモードだったけど、最近アクティブなっていろいろあったよっていう話。
 
