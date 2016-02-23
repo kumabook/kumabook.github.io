@@ -23,7 +23,7 @@ ReactiveCocoaとほぼ同じようにRxJavaも使えそうでAndroidアプリ作
 仮想マシン内部に依存した最適化の話。生成されるバイトコード、ネイティブコードやVMのアーキテクチャ、GCの設計の話などをソースも交えて解説。
 
 ### 感想
-面白かった。VMハック楽しそうだった。Androidというよりもコンピュータサイエンス的に興味深い話だった。まさに廃人といった感じだった。
+面白かった。1日目のベストアクト。VMハック楽しそうだった。Androidというよりもコンピュータサイエンス的に興味深い話だった。まさに廃人といった感じだった。
 ローレベルにダイブする人は男気があってカッコ良い。
 
 ## [Android Dev Tools Knowledge](http://sssslide.com/www.slideshare.net/shinobuokano7/android-dev-tools-knowledge)
