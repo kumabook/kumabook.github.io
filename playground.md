@@ -4,7 +4,9 @@ title: Playground
 ---
 
 # Playground
+
 ## Algorithm visualization
+
 ### Basic data structure
 * [Resizing array stack](./playground/index.html#stack)
 
