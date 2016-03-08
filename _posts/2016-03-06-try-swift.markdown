@@ -1,0 +1,604 @@
+---
+layout: post
+title:  "try! swift に行ってきた"
+date:   2016-03-06 09:48:00 +0900
+categories: programming, swift
+---
+
+ try! swiftカンファレンスに行ってきた。3/2~3/5 の３日間渋谷のマークシティ13Fセミナールーム。
+ 詳細な内容はガチでまとめている人がいるみたいのなので、ここで内容についてまとめることはしない。以下を参照されたし。
+
+ - [try! Swift 全日程聞き起こしまとめ](http://niwatako.hatenablog.jp/entry/2016/03/05/022452)
+ - [try! Swift 資料まとめ](http://qiita.com/mishimay/items/895d676eb9940d75e639)
+
+なので、忘れないうちに会場の雰囲気とか感想とかを書いておこうと思う。
+雰囲気は外国の人が結構したからか休憩時間は和やかにみんな話していた。
+また、セッションの幅が広かった。これは一番良いな思うところだった。
+大きく３つ理由があるのかなと思った。
+一つはメジャーなプラットフォームで使われていること。
+２つ目は言語的な特性。objective指向な側面、functionalな側面、システム言語的ローレベルな側面があり、凝ったこともできるが、サクッと簡単に書くこともできるので、いろんなレベルの人が興味を持っていると思う。
+３つ目は若い言語でかつオープンソース化されたので、意欲のあるオープンソース開発者にモチベーションをかき立てているのではないかと思う。
+これは完全に個人的な話だが、若い言語だとまだライブラリが少ないので、
+車輪の再発明になんだけど、pureにその言語で別の言語で書かれたライブラリやツールを移植したり、言語特製を生かして書き直すということがアリになっているので（nodejsではここ4~5年流行っていた印象）、
+勉強したいが何を作ろうか迷っている時に良い題材になると思っている。
+
+
+
+去年１つiOSアプリを書いたのだが、swift 1.0から作り始めていてswift 2.0へは最小限で済ませていた。
+なので、swift 2.0の新機能を積極的に導入できていなかった。仕様もあまりしっかり追えていなかった。
+今回セッションで便利な新機能の話を多く聞けて、俄然アプリのコードをリファクタリングなった。
+というか2日目から休憩時間はめっちゃリファクタリングしてた。
+
+- guard
+- protocol extension
+- associated type
+- type erasing
+
+この辺はセッションでかなり理解が深まったので、ガンガンリファクタして導入していきたい。
+あとapple公式のswift book とwwdcのセッションは目を通しておいたほうが良いと感じた。
+iOSのスペシャリストになりたいなら最低限やるべきことだと感じた。
+これはDroidKaigiでも感じたことだが、一定レベルのエンジニアは公式の情報は
+当たり前のように抑えている。一次ソースをちゃんと抑えるのは大事。
+
+
+ セッションは基本英語だったが、半分ぐらいは通訳を通さないで聞けた。アメリカ英語でかつゆっくり話してくれればだいたい大意は把握できるレベルにはなっているなーと。
+ でも速かったりスライドなしで込み入った話をされるとちょっと辛い。
+ 懇親会でも、外国の方とコミュニーケーション取れて良かった。ポルトガルのデザイナーの卵とオーストラリアのエンジニア、それとボスニアのエンジニア二人と話せた。
+ なぜかチャットワークの人と外国の人という形で話した。チャットワークの人と自分はお互いつたない英語だったが、話が終わったあとは
+ 「お互い頑張りましたね」っていう感じ戦友のような感じになって楽しかった。
+
+
+今回発表していた日本人の人は若めの人が多く、羨ましすぎて鼻血出そうだった。
+自分はああなりたいんだなと明確に感じた。どうすればいいか
+
+- ライブラリをオープンソースを公開する
+- meetupや勉強会に参加、発表
+
+で地道にポイントを貯めていくしかないだろうな。
+
+自分のエンジニアとしてのキャリアパスを考えなきゃと思い知らされた３日間でもあった。
+
+
+
+<!--
+
+memo
+======
+
+# Dive to the swift ecosystem
+
+## open source swift
+
+- 1500のプルリクエス
+- 7つコミュニティからの提案が採択
+
+## Swfit-related services
+
+- IBM Swift Sandbox
+- paiza.IO
+- Heroku with Buildpacks
+- Cloud Foundry, OpenWhisk
+- Swift Package Catalog
+- Online Docs
+- CocoaDocs (appledoc and jazzy)
+- Continuous integration
+  - Travis CI
+  - Circle CI
+  - ...
+- Codecov: Code coverage
+  - codecov/example-swift
+- HoundCI: linting backed by SwiftLint
+
+- Package Management
+  - Carthage
+    - CarthageCache
+    - ...
+  - CocoaPods
+  - Swift Package Manager
+- Swift-related Dv Tools
+  - SourceKitten
+  - SwiftLint
+  - jazzy
+  - SourceKittenDaemon
+- Buildasaur: auto test
+- XcodeServerSDK
+- Resource Code Generation: リソース管理を型安全に
+  - SwiftGen
+  - R.swift
+  - clg
+- Testing
+    - Quick:
+    - Spectre: including test runner
+- Contribute to the services
+  - Use it
+  - Share it
+  - Feedback
+  - Pull request
+
+# Cross platform swift
+
+- Realm
+- jazzy, swiftlint
+
+- Exactly 2 platform
+  - darwin
+  - linux
+- Exactly 3-ish platform
+  - xcode
+  - darwin
+
+- xcode 以外では支援ツールがない
+
+- xcdoe
+- xcode + toolcahin
+- docker + cli + editor
+
+- xcode + toolchain
+  - select toolchain
+  - straight forward
+- docker + cli + editor
+  - use docker
+    - brew install docker docker-machine
+    - docker-machine create --driver virtualbox default
+
+- Swift Package Manager
+    - Use SPM even for small or private projects!
+    - Set boundary
+- work for SPM
+  - dynamic
+  - casting
+  - foundation
+  - grand central dispatch
+  - auto importing of frameworks
+- Result
+    - seem to be pure
+    - Error casting depends on obj-c runtime
+- workaround for fragmentation
+  - `#if SWIFT_PACKAGE`
+  - `#if os(Linux)`
+- Testing
+  - XCTest
+    - need to clone
+  - SPM Testing
+    - linux: not includes runtime reflection
+  - CI
+      - Travis CI
+      - OSX_XCODE, OSX_SPM, LINUX_SPM
+
+# 知らないコード読みとくには。読みやすいコードを書くには
+
+- hello, world
+- human language ...
+- readability needs a reader
+
+- working memory: 5 minutes
+- chunking
+- deciphering
+- reading
+- pattern matching
+
+
+# TV OS
+
+- cocoapods
+- contentful
+
+
+- webkit
+  - oauth
+- multipaeer connectivity
+  - low level only
+- storage limitations
+  - App is limited 200MB
+  - 500kb of persistemnt storage
+  - Use iCound
+  - On demand resources
+
+- Pods not supporting tvos
+- Porting Doom
+  - UIKit Changes
+  - AudioSession
+  - Newer C++ Compiler
+- nibs
+  - translator of xml: bohne
+- siri remote
+
+# type erasing
+
+- What is type
+  - 
+- compilers loves types
+- Concrete types
+  - instantication directly
+- Abstract types
+    - incomplete
+- Type reification
+  - abstract type -> concrete type
+  - type parameter
+- protocol
+  - wrapper class
+  - just intialize
+- Type -easure- scaffolding
+- No covariance
+
+
+# Three stories about Error handling in swift
+
+- Optional
+    - C
+      - unsafe
+    - Java
+      - exception
+    - swift
+      - optional binding
+
+- Success or Failu,re
+    - tuple, union
+- try
+
+# Protocol
+
+- as? lies
+- @objc spreads like a virus
+
+- Protocols
+    - Composition instead of inheritance
+- Generics
+
+
+# blending
+
+- OOP, FOP, POP
+- Class to a Struct
+  - mutating
+    - let's eliminate mutating
+      - more functional
+      - 1. mutalbe copy
+      - 2. modify
+      - 3. return new instance.
+- protocol extension
+  - use like mixin?
+- template pattern
+
+# Advanced Graphics with Core Animation
+
+- core graphics
+  - cpuで実行
+  - 遅い？
+  - core graphicsのコード出すツールもある
+- Core animation
+  - CALayer
+  - Where is it in UIKit
+      - UIView.#layer
+      - View#frame = CALayer#position, bounds
+  - contentGravity
+  - gpuを使うと早い
+  - flipboard: core animation transform
+  - reveal app
+  - core animator
+
+# Smart technology
+
+# Boundaries
+
+- functional core
+- imperiative shells
+- wwdc 2014
+- immutable core
+
+- let で宣言しただけのものをfunctional coreと読んで良いのか？
+  - java とかCでもfinal, constあったけど
+
+- coordinator pattern
+  - view controller don't know about other view controller
+  - view controllerをcoordinatorでくるむ
+  - view controller同士の依存性を排除?
+
+- Abstraction
+  - solid と fluid のバランス
+
+# prototype and animation: face book: pop
+
+
+- POP animation library?
+  - cancel core animation in sync
+- POP
+
+
+- Protocol history
+  - single inheritance. siml 67
+  - alan kei. small talk
+  - java
+  - inheritanceはパワフルだけど、難しい.
+  - objc の作者、single inheritanceは価値がない.
+    - cross cutting
+  - 70年代半ば
+    - favors, 多重継承
+    - lisp
+    - diamond 継承
+    - flavorを混ぜる, mix
+    - 初期化時にエラーを出す
+- byte magagine
+- objective-c: Cのsmalltalkっぽい拡張
+  - dynamic dispatch
+  - runtime crash
+- protocol
+  - brad cocks
+  - コンパイル時にチェックできる
+  - ダイヤモンド問題がない
+- 1996: next 買収
+  - protocol志向
+  - protocol extension デフォルトの実装
+    - cross cuttingの解消
+  - UIView とUILayoutGuide
+    - exntesion Layoutable
+    - protocol extensionのcollision
+        - コンパイルエラー
+    - protocol extension cause complexity
+      - nameing collision
+      - method prefix？でもない方がいいよね。
+
+# The Design of Everyday Swift
+
+- デザイン志向
+- user-focusedデザイン
+- Users
+  - other developer
+- 7 steps
+  - Goal
+  - Plan
+  - Specify
+  - Perform
+  - Perceive
+  - Interpret
+  - Compare
+
+- Discoverbility
+    - featureがわかりやすく
+    - public, private, interval
+    - Tests
+    - Sensible method/variable names that trigger autocomplete
+    - Comments & documentation
+- Feedback: 情報をユーザに提供, should be automated
+  - plus, minus, worse: none
+  - Compiler errors <- best
+  - Complier warnigns
+  - Test failure
+  - Runtime crashes <- not effective
+  - Runtime experience
+
+  - pair programming is good, but not scaled out
+
+- Conceptual Model
+  - ipod, and phone and internet
+  - explain with already known product
+  - 見つけやすさ
+  - 経験に基づいて conceptual model
+- Affordances: ユーザとオブジェクトの関係性
+- Signifiers: 記号表現
+  - 実現可能な内容を感覚で表現
+  - Enum, Struct
+ Mappings
+  - xcodeproj organization
+  - directory structure
+- Constraints
+  - ハサミには制約がある
+  - Swift's type system で制約を加える
+    - nagative feedback
+    - ミスを避ける
+- デザイン志向で他のディベロッパーに
+
+
+# Moern core data
+
+- how to use an old api in modern swift api
+- make code more redable
+- make code less error-prone
+- Core data
+  - very dynamic
+  - 12 years old
+- objc.io.books
+  - core data book in swift
+- keep the sprit
+- Entity
+  - 1 creat a protocol
+- Key value coding
+  - very dynamic, no type-safety
+  - wrap enum
+
+- save
+
+```
+make changes
+...
+try moc.save() thorws
+```
+
+```
+moc.performChange {
+    make changes
+}
+```
+
+- NSNotification
+  - wrapper
+
+# Swift compiler integration in LLDB
+
+    - 2014, 2015
+    - LLDB compilers
+      - Clang
+      - Swfit compiler
+
+
+ブレイクに入ったところで
+p 可能
+
+p UIApplication.shareApplication()
+
+$R2
+$0 Obj-C, $R0
+
+- Swift error-handling support in lldb
+  - expression ThisFunctionThrows()
+
+- (a.EnumError) $E0
+
+- breakpoint set -E swift
+- br s -E swift -O EnumError
+
+
+# Create a Swfit Library
+- multiplatform ライブラリを作る
+- Continuous integration
+- Example
+  - good
+- Snorlax カビゴン
+- xcodeの設定
+  - ios
+  - check allow app extension
+- Travis CI
+  - matrix build
+
+```
+osx_image: xcode7.2
+language: objective-c
+script: 
+```
+
+```
+#!/bin/bash
+
+
+```
+
+- Package manager
+  - Cocoapods
+    - `pod spec create Snorlax`
+  - Carthage
+    - `carthage build --no-skip-current`
+  - SPM
+    - support linux
+    - Package.swif
+    ```
+        import PackageDescirption
+    ```
+
+- SwiftEnv
+
+
+- Protocol oriented
+  - NSURLSession protocolsでラップ
+    - シンプルに
+  - Requestをプロトコルに
+  - why protocol
+    - 型を紐付ける
+      - associated type: protocol in typealias
+    - flexibleなデフォルト実装
+      - baseURLのデフォルト値
+      - 準拠する型のハードルが下がる
+      - json デコード処理の共通化
+    - 型制約つきのprotocol extension
+- practial example of generic programming
+  - Pagination request
+    - PaginationRequestType
+      - rel="next"
+    - 結果の配列＋次のページがあるか？
+    - protocol の制約(computed property)とする
+- PaginationClient<Request: PaginationRequestType> 型制約
+  - refresh
+  - nextPage
+  - protocol で定義したものしか使わない -> あらゆるもので使える
+- With reactive streams
+
+
+# Motivation based library abstraction
+
+    - 必要は発明の母
+    - UTIKit
+      - swiftらしいインタフェースを提供
+    - HUDKit
+    - UIPresentationController
+    - HTTPRequestMatcher
+- @IBDesignable
+  - デザイナーがいじれるように
+
+# Server side swift
+
+    - Curassow, Jay
+    - Delopy on heroku
+      1. swiftenv
+      2. 
+
+
+- OCMock
+  - OCMock can't save you now
+  - 
+
+- Swift hip star
+  - @noescape
+    - closure
+  - 遅延評価の話
+  - scalaでも同じのがあったような
+  - 「キャプチャされる」の意味がよくわからん買った
+
+- Core image framework
+    - image processing framework
+    - 170 built in filters
+    - CIKernel
+      - pixel処理
+    - CIFilter
+    - CIImage
+      - bitmapデータはない
+    - CIContext
+    - filterpedia
+    - CIImageのいいところfilterをグラフにでき、皇室よく処理
+- Custom Kearnel
+    - ピクセルをを直接変換
+
+
+# machine learning
+  - wilson's score interval
+  - 数学の特書文字を使う
+  - naive veis
+
+# xcode
+
+```
+import ObjectiveC.runtime
+
+method を置き換える
+
+class_getInstanceMethod
+class_replaceMethod
+
+```
+
+
+
+# デザイナーをコードベースに参加させる
+
+- iddesignable を使えるようにする
+
+
+# parser combinator
+    - higher kinded types
+
+# Swiftに貢献するには
+    - llvm compiler architecure
+      - frontend -> llvm ir -> llvm optimizer -> backend -> machine code
+      - llvm is moduler
+      - clang pipeline c, c++ llvm front end
+        - source -parse-> AST -sema-> ast* -codegen-> llvm ir -> llvm
+                                       |
+                                       |
+                                       analysis (static analyser)
+      - swift pipeline
+        - swift -parse-> ast -sema-> ast* -SILGen-> SIL(raw) ir wrapper -> ---analysis & optimization-> SIL* -IRGen> LLVM iR -LLVM-> *.o
+        - *.module map
+      - 
+
+# unittest
+    - bus factor
+
+-->
