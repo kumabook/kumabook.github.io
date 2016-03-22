@@ -1,0 +1,73 @@
+---
+layout: post
+title:  "urlエンコードするだけのシンプルなコマンドuenc"
+date:   2016-03-22 21:25:18 +0900
+categories: programming, english
+---
+
+最近Feedly Cloud APIのクローンを書いている。
+Feedly Cloud APIはルーティング少し独特で`/v3/streams/:stream_id/contents`の
+`:stream_id`のところをurl encodeする必要がある。
+これが以外と曲者でcurlのオプションだとクエリ部分をエンコードはしてくれるみたいだが、
+pathの部分をエンコードはしてくれなそう。
+
+シェルコマンドでurl encodeしてくれるものがないか探した。`nkf`がどうも良さそうなのだが、
+
+```
+echo 'テスト' | nkf -WwMQ | tr = %
+```
+
+こんな感じらしい。
+
+
+めんどい。。。
+
+
+オプションを覚えられないよー。。
+
+ということで引数をurl encodeするだけのシンプルなツールを実装した。
+
+[uenc](https://github.com/kumabook/uenc)
+
+15行にも満たないがrust製。
+
+```
+$ curl "http://localhost:3000/v3/streams/`uenc tag/global.latest`/contents"
+```
+
+こんな感じでいい感じにコマンドラインで書けるようになった。
+
+まだ、14行だが、ざっと考えて下記ぐらいやることはあるので、rustの勉強がてら一通りやろうと思う。
+
+- decodeの対応
+- 標準入力対応。pipeで繋げれるともしかしたら嬉しいことがあるかも
+- マルチバイトのcharsetをオプションで指定できるようにする
+
+
+最近ライブラリを書きたい意識が高まっていて、ネタをひねり出そうと、
+tjとかsubstackのgithub repoを見ていたのだが、
+やはりというかちゃんと自分の中にニーズがあって作っている感がある。
+ブログとかqiitaの記事とかもそうだが、あまりソーシャルな部分を気にしすぎずに
+自然と出てきたものをアウトプットしていこう。
+
+今日は、気が向いたので、試しに英語でも書いてみる.
+
+-----------
+
+Recently, I've been writing code for clone of Feedly Cloud API.
+The routing of Feedly API is a little unique.
+For example, `:stream_id` in  `/v3/streams/:stream_id/contents` should be url encoded.
+
+However, curl encodes only query string. It does't encode a part of path.
+I searched commands that can encode with url encoding. Then  I found `nkf`,
+but it needs a lot of options.
+So, I create simple url encode command.
+
+[uenc](https://github.com/kumabook/uenc)
+
+This is written by rustlang, but less than 15 lines.
+Now there are 14 lines, but it has something to be done.
+
+- implement decode (udec command)
+- standard input.
+- specify multibyte charset with options
