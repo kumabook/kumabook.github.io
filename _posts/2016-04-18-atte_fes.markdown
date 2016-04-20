@@ -1,0 +1,349 @@
+---
+layout: post
+title:  atte FeS【Go・Swift開発編】 に行ってきました
+date:   2016-04-18 19:28:52 +0900
+categories: programming
+---
+
+
+<img src="/assets/atte_fes.jpg" alt="Drawing" style="width: 800px;"/>
+
+[atte FeS【Go・Swift開発編】](http://mercari.connpass.com/event/29506/)に行ってきました。
+
+結構人気で抽選だったのですが、ブログ枠が空いていたのでブログ枠で参加しました。
+全体の感想としては、新しいサービスらしくモダンな技術をバンバン使っていて、攻めてるなと思いました。
+あと、ビールとか軽食も素敵でしたw
+
+
+気になるトピックを紹介しつつ振り返りたいと思います。
+
+
+
+## 1.golangとgoogle app engine
+
+- 鶴岡さん
+
+メルカリの初期エンジニアの一人らしいです。
+golangとgoogle app engineのお話でした。
+
+### なぜgolang&GAEにしたのか
+技術の選択の軸として、
+
+- メルカリでの成功例を縛られない
+- 最初からスケーラビリティを考えて、完成系のアーキテクチャを目指す
+
+というのを念頭に置いていたそうです。
+
+### GAEはすごい
+
+僕はherokuやAWSとかしかPaasを触ってきてなかったですが、
+GAEの機能やパフォーマンスの良さが魅力的に感じました。
+herokuもコンテナベースだったとは思いますが、
+やはりGoogleの力なのか、パフォーマンスのレベルが全然違いそうですね。
+
+気になったのは、RDB・SQLではなくBigtableとDatastoreを使ってるというところですね。
+BigtableもDatastoreも実際にどうプログラムを組むのは知らないのでなんとも言えないですが、
+Joinとか厳密なTransactionがないみたいな話だったけど、決済とかすごくセンシティブな実装を求められそうですが、
+その辺ははまりどころとかなかったんでしょうか？すごく気になりました。
+
+### golong
+golangはすごく良さげですね。
+型チェックがあると変更しやすいっていうのは本当その通りだと思いますし、
+関数型言語ほど、キツくもなくてバランス取れてるのかなと思います。
+1週間後にまた触るのなら、元取れる的なことをおっしゃっていて、
+思い返してみると本当その通りだなと思いました。
+
+golangの話で一番印象的だったのは、clientチームにmasterのgodoc共有しとけば、
+api documentの代わりになるという話でした。
+それ自体はgolangに特有の話でもない気その辺もしますが、
+やはり型があるとself documentedになるので、その辺が効いてきているのですかね。
+
+
+## 2.Swift とRxSwift
+
+大庭さん。先週Reactive Swift Meetupで最初に話されていましたね。
+mercari, atteのiosを両方とも立ち上げたらしいです。
+FRPの説明は口頭でうまくまとめるのは難しいだろうなと思いますが、
+わかりまとめてらっしゃってさすがだなと思いました。
+
+### メルカリはReactiveCocoa
+
+印象に残ったのは、mercariではReactiveCocoaをヘビーに使っていて、FRPライブラリなしは考えられなかったという話。
+僕も家ではReactiveCocoa+Swiftでコード書いているけど、
+会社ではobjc-cを書いててすごく辛くなるので、ものすごい共感しました。
+
+### JSONRPCKitを作った話
+
+[APIKit](https://github.com/ishkawa/APIKit)を使いたかったけど、
+うまくはまらなかったので、
+[JSONRPCKit](https://github.com/bricklife/JSONRPCKit)を自作したというのも良いなと思いました。
+オープンソースで作ったというのが素敵ですね。
+
+### RxSwiftの例がわかりやすかった
+
+RxSwiftの具体例がどれも具体例がしっかりしていてわかりやすかったですね。
+複数画像アップロードをcombineLatestでpromise的に使う。
+incremental searchをdebounceでやるとかは、
+個人的にも人に説明するときに使おうと思いました。
+
+
+## 3.Atte iOSの設計と開発フローの変遷
+
+石川さん。この方もReactive Swift Meetupで話されてたし、try! swiftでも話されていましたね。
+
+### Paginationをprotocolを使って一元化した話
+
+[APIKit](https://github.com/ishkawa/APIKit)もそうですが、
+protocolの使い方のお手本のような設計・実装だと思います、素晴らしいです。
+僕も最近、似たようにページネーションをprotocol・protocol extensionで一元化したのですが、
+イキって抽象化しようとしすぎて、結果コンパイルエラーになるという、パターンを繰り返しつつ、
+すっごいコンパイルエラーと戦いながらリファクタリングしてました。
+石川さんはコンパイルエラーと戦ったのだろうか。型チェックが厳しい言語特有の
+リファクタリングし辛さみたいなのもあると思うのですが、もっと質問しておけばよかった。
+
+
+### キャッシュ戦略の変遷
+
+ キャッシュの話。もともとRealmに保存していたが、
+
+ - 何もかもがRealmのObject
+ - 何が永続化されているか型からわからない
+ - 削除ポリシーが不明確
+
+ など、問題が出てき始めたので、パージ前提でLRUにディスクキャッシュ方式に切り替えたという話。
+
+ みんな実装しているのに割と議論されていないところの話が気がしていて、
+ 目から鱗的な内容でした。LRUキャッシュを実装するものそこそこ時間もかかる気がしますが、
+ [ISDiskCache](https://github.com/ishkawa/ISDiskCache)とかを使ったのだろうか。
+
+
+### 自動デプロイ
+
+travis ci + deploy gate + test flightで手元でarchveしない、
+デザイナーもバイナリ作れる環境したという話。
+アーカイブに7分で割と早くてびっくりしました。
+
+
+## 4.最後に
+
+GAE, golang, Swift, RxSwiftとモダンな技術を積極的に取り入れて素晴らしいと思いました。
+特に、GAEとLRUの話が個人的には目から鱗でした。
+ブログ枠とか初めてですがこんな感じで大丈夫なんでしょうかね。
+
+最後に資料も後々挙がるのかなと思いますが、メモも貼っておこうと思います。
+
+
+
+-----------------
+
+--------以下メモ---------
+
+# golangとgoogle app engine
+
+1. Go GAEは非常に有力
+2. Paasの時代が本格的に始まってきた
+
+
+### Why Go? Why GAE?
+- アプリケーションの用件
+  - 機能的な用件
+    -  JSON API, 静的、動的
+    - DB, queue
+    - Search: key, 全文検索、geolocation, 予測変換
+    - image upload, 配信、mail, push, data分析
+  - 非機能的な用件
+    - グローバルに複数リージョンでかつDBは一つにしたい
+    - 大規模
+      - 3500 万
+      - 毎分120万requeet, データは億単位
+    - ハイスケーラブル
+      - 立ち上げ期間から最後まで一貫した設計に
+      - 一方メルカリは
+        - ハイエンドなマシンに詰め込んで
+        - 徐々にアーキティクチャを更新
+### メルカリではなくソウゾウ
+  - あえて同じ技術を使わない
+  - メルカリは保守的に＆堅牢に
+  - エンジニアにとって魅力的に
+  - 多様性と技術の開拓
+### Googleの動き
+  - オンプレかAWS
+  - Google Cloud Platformがすごいと噂
+  - Googleの担当者を紹介してもらい、GCP/GAEの採用可能性を1month検証
+  - Supportが良い
+    - 5 years ago とは違う
+    - 人のサポート
+    - Updateが多い。リソース投下している
+## プロダクト開発へフォーカス
+  - Go 生産性、パフォーマンス（web）
+    - middle experience
+  - 長い目でみれば生産性は高い ()
+    - 一週間後にまた触るのなら、元取れる
+    - 型チェック、変更しやすい
+    - チーム開発しやすい
+      - go fmt
+        - 標準である
+      - go doc
+        - 常に最新のmaster のgo document
+        - 他のチームに見せて、api documentの代わりに使う
+### GAE
+- モジュールとバージョン
+  - アプリケーションを複数の環境にデプロイ
+  - トラフィックの振り分けが可能
+  - 理想的なBlue/Green デプロイ
+- instance auto scale
+  - instance = container
+  - goのインスタンスなら起動は200ms
+- リアルタイムログ機能
+  - どんどんBigQueryに入る
+  - トレース
+
+## 分散システムのためのDatastore
+- RDB Master/Slave model
+  - 大規模なデータになるとRDBの持ち味が活かせなくなる
+  - ユーザの上限がわかっている場合はOK
+  - GCPではCloud SQL があるが非推奨？
+- No SQL (Datastore)
+- RDB or NoSQL
+- グローバルで大規模だったら NoSQL
+- object strcutred schemae less key value store
+- on big query
+- Pros.
+  - high scalability
+  - 1件でも10億件でもおなじ書き込み速度
+  - 並列書き込み
+- Primitive
+  - no transaction
+- RDBのパターンを使えない
+  - 一時的に一貫性がなくなる
+  - auto increment
+    - twitter snowfalke https://github.com/twitter/snowflake
+- atte archtecture
+  - modules: api, web, cs tool, etc.
+  - monorepo
+  - app, domain, infra
+- GAEへの依存
+  - ロックインするが、infraだけ変えればよいようにはしてある
+- Go way
+  - coding style
+  - package management
+  - x/net/context/, net/http
+- 1つのパッケージにすべてを入れる(monorepo)
+  - 横断的な変更がやりやすい
+
+## 質問
+  - parseを使っていた. google だめなら仕方ない
+  - down timeはダウンしたことない
+- golangはtukai yasui?
+  - いい感じ
+  - 意図的にexpertに気がずに作ったけど web app ならいける
+- team
+  - godoc やコードをみればだいたいわかる
+- monorepo microservice?
+  - mercari は分けている. その問題
+  - 変更した時に問題が..
+- google, facebookもmonorepo
+  - mercurialを改造とかしてまでやっている、
+
+# Swift とRxSwift
+
+- 大庭
+  - mercari, atteのios立ち上げ
+- swift 2.2, RxSwift
+- 最初は一人 -> 4
+- iOS 8移行
+  - carthageが使いたい
+- type safe, Optional, enum, etc
+  - APIKit, Himotoki
+  - JSON-RPC 2.0と相性が悪かった
+- JSONRPCKit
+- RxSwift
+- Reactive Programming
+  - mercari ReactiveCocoaをヘビーを使っていた
+- stream 生成
+  - 文字列・配列、UIイベント, 文字列入力, api request
+- stream 加工
+  - filter, map, merge, reduce
+  - list processing, async, data binding, promise
+  - incremental search
+    - debounce 5秒以内
+    - distinct
+- 複数画像後の新規投稿combineLatest()
+  - promiseに近い
+- why RxSwift
+  - 2011~, Reactive Extension swift版
+  - Androidでは, RxJava
+- 学習コスト
+  - MVVM
+  - ライブラリが巨大
+  - 頼りきると...
+- 入門
+- RxMarbles
+- document
+- 実装パターンの共有
+
+- どこからはじめると良い？
+- UIのバインディング
+
+# Atte iOSの設計と開発フローの変遷
+
+- kayac -> line -> souzou
+- APIKit
+
+1 同じ構造の実装の一元化
+
+1. pagination
+  - ViewModel
+  - UIView, UIViewController <-> ViewModel <-> APIClient, Model という構造
+  - UIView, UIViewController部分はは差し替え可能
+  - Paginationを使っている箇所
+    - timeline, like list, message, notification...
+  - PaginationViewModel<Element>で一元化
+    - type parameters: Element, Request
+    - Protocol で実装のための足場を用意
+    - Protocolで定義したメソッドだけで実装
+  - 開発がどうなったか
+    - 高速
+    - 安全
+
+2. キャッシュ戦略の変遷
+- Realmでcache: responseをRealmに保存
+  - 何もかもRealmのObject
+  - 何が永続化されているか型からわからない
+  - 削除ポリシーがシビア
+  - migrationも大変
+
+- そももやりたかったことは？
+  - responseの永続化
+  - 画面間の情報共有
+
+- パージ前提の気候で保存
+  - LRUのディスクキャッシュ
+
+- response型の制限
+  - ObjectMapper -> Himotoki
+  - JSON validation と型のインスタンス化
+- Realmはまだ使っている
+  - サーバに届いているデータ・いないデータに分けると後者はRealm
+
+3. 自動デプロイ
+
+- pull request
+- no dependent
+
+- travis ci
+  - git push
+  - travis ciが降る
+  - 手元でarchive しない
+- deploy gate (development)
+- testflight (production)
+- branchで管理
+  - feature: test
+  - master: test + development
+  - release: test, development, production
+- ビルド時間:
+  - unit test 3
+  - archive 7
+  - archive_dev 3
+- 結果、デザイナでもデプロイできるようになった
+
