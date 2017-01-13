@@ -1,0 +1,78 @@
+---
+layout: post
+title:  約束
+date:   2017-01-13 21:05:56 +0900
+categories: javascripts, programming
+---
+
+ 現在 JavaScript(es6)にはPromise というそれは素晴らしいAPIがある。
+ 標準仕様になる前は、jQuery.Deferredが流行っていてほぼそれと同等の機能を提供するAPIだった。
+ jQuery.Deferredが導入されたのが jQuery 1.5。
+ jQuery 1.5がリリースされたのは[2011 1/31]((http://blog.jquery.com/2011/01/31/jquery-15-released/))。
+ 新卒で今の会社に入ったのが、2011年 4月 なので同期と行ってもいいだろう。
+ 今日はこのPromiseについての話だ。
+
+ Promise/jQuery.Deferredは非同期処理を描きやすくするライブラリである。
+
+ 例えば `http.get(url, onSuccess, onFaliure)` のような
+ httpリクエストを投げて結果をコールバック関数で受け取るAPIがあった場合、
+ あるAPIの結果を受けて次のAPIを呼ぶ場合にコールバックがネストしてしまう。
+
+```
+
+  http.get('http://www.example.com/books', function(books) {
+     http.get('http://www.example.com/books/' + books[0].id + '/comments', function() {
+        http.get('....', function() {
+        }, function() {
+        });
+     }, function() {
+     });
+  }, function() {
+  });
+
+```
+
+Promiseを使えば、コールバックのネストを防ぐことができる、何より
+「処理を途中まで行ったもの」を値として扱うことができ、より柔軟なプログラミングができる。
+
+```
+
+  var getPromise = function(url) {
+    return new Promise(function(resolve, reject) {
+      http.get(url, resolve, reject);
+    });
+  }
+  getPromise('http://www.example.com/books').then(function() {
+    return getPromise('http://www.example.com/books/' + books[0].id + '/comments');
+  }).then(function() {
+    return getPromise(...);
+  });
+  ..
+```
+
+ そんな素晴らしいPromiseだが、Promiseのない世界も存在する。古いブラウザである。
+ 理由あってそんなPromiseのない世界でプログラミングをしていたのだが、
+ いよいよ辛くなってきてPromiseが欲しくなってきた。
+ 世の中のライブラリをいくつかみて回ったが、少しオーバーな気がする。
+ そこまでパフォーマンスにこだわらなくていいから、シンプルで必要最小限の実装が欲しいのである。
+ これまで何回かPromiseを実装しようと思っていたが、結局実装しなかった。
+ ここいらで重い腰をあげても良いのではないかと思い立ち、昨日から実装をはじめた。
+ 思ったほど時間はかからず昨日の夜で`Promise.then`の実装とユニットテストは粗方書き終わり、
+ 今日、`Promise.resolve`, `Promise.reject`, `Promise.all`, `Promise.race`の実装をした。
+
+ [kumabook/yakusoku](https://github.com/kumabook/yakusoku)
+
+ 行数は174行でサイズは3.790 kb, ミニファイしたら2.731kbだった。
+ 名前はPromiseの和訳のyakusokuにした。
+ `Promise#catch`は古いブラウザだとSyntax errorになるので、`Promise#rescue`という別名のメソッドを用意した。
+ カバレッジは今のところ100%なので、それになりに動くと思う。
+ 引数チェックとかはかなりサボっているが、実際そこまで問題にならないと踏んでいる。
+ これで生産性が幾分が上がるはずである。我ながらいい仕事したと思う。
+
+ 実装して改めて仕様を確認したのだが、Promiseは「pending」と「fulfilled」と「rejected」という３状態をもつ。
+ 約束は「まだ果たされていない」か「果たされた」か「破られた」かのどれかなのである。
+ 「pending」のままの約束があるのでは
+ と考えてみたはいいものの最近仕事以外で約束らしい約束をしていない気がする。
+ 逆に仕事は約束の連続である。
+ 約束をするとそれを果たしたくなる。
+ そうやって約束は時に人を成長させると思うので、もっと大事なことは約束をしていこう。
