@@ -1,0 +1,96 @@
+---
+layout: post
+title:  ニセモノ
+date:   2017-01-29 11:45:03 +0900
+categories: javascripts
+---
+
+ 前回[kumabook/yakusoku](https://github.com/kumabook/yakusoku)というPromiseライブラリを作った。
+ これは業務でes3を書いていて困ったから作ったものである。
+ もう一つ困っているものがあった。モックライブラリである。
+ 現在JavaScriptでモックライブラリのデファクトは Sinon.JSである。
+ テストフレームワークJasmine(もしくはそのフォークのJest)にはモックAPIが付属している。
+ mochaを使っているので、まあSinon.JSが使うのが普通の流れだ。
+ ただ、どうも実装が大きい。5000行ぐらいある。
+ もっとシンプルでいいからサイズを小さくして欲しい。
+ やはりNodeJS用のライブラリは富豪的である。
+ というわけでシンプルなモックライブラリを作ることにした。
+ どういうAPIにすべきか色々調べてみると、`testdouble.js`というのが割と流行り始めている気配を感じた。
+ 早速APIを見てみると、確かになかなかスッキリしている。
+ 厳密にはspyとstubとmockの違うみたいなのだが、
+ そうは言っても実際問題そんなに区別しなくて良いことも多い。
+ `testdouble.js`のそこを区別しない思想に交換がもてる。
+ なので、APIデザインは`testdouble.js`を参考にすることにした。
+
+ 2週間前の週末に大半の部分を実装して出来上がったのが [kumabook/nisemono](https://github.com/kumabook/nisemono)
+ である。基本は
+
+ - `nisemono.func()` でニセモノの関数を作る
+
+ だけである。そのニセモノの関数の振る舞いを`nisemono.expects()`で規定できる
+
+```
+nisemono.expects(func).withArgs(1, 2, 3).returns(6)
+```
+
+引数1, 2, 3 が渡された場合は6を戻り値として返す。
+
+他にも
+
+- `throws` 例外をスローする
+- `calls` コールバック関数を実行する
+- `resolves` 成功するPromiseを返す
+- `rejects` 失敗するPromiseを返す
+
+のバリエーションがある。
+関数が呼ばれたかは`func.isCalled`で取得できる。
+
+実際今のプロジェクトに投入しようとした時に毎回オブジェクトの全てのメソッドを差し替えるのが
+辛かったので、既存のオブジェクトのメソッドをニセモノの関数に置き換えた「ニセモノのオブジェクト」を作る`nisemono.obj()`も追加で作成した。
+
+```
+var obj = {
+  method1:  function() { return 1; },
+  method2:  function() { return 2; },
+  property: 'property'
+};
+```
+
+こんなオブジェクトがあったら
+
+```
+var niseObj1 = nisemono.obj(obj);
+nisemono.expects(niseObj1.method1).returns('nise1');
+nisemono.expects(niseObj1.method2).returns('nise2');
+
+```
+
+こんな感じでオブジェクトのニセモノをサクッと作れる。
+さらに`only`と`except`でホンモノのままにしておきたいメソッドを指定できるので、
+オブジェクトの特定のメソッドのテストを書く時に利用できる。
+
+ここまで作って自分のユースケースは満たせたので、
+
+- READMEの作成
+- npmに公開
+- テスト・カバレッジ
+- travis CI・coverall・codeclimate との連携
+- API documentの作成
+
+など諸々行って一旦リリース。
+
+小さいライブラリはこの辺の作業も重厚にならなくて楽しい。
+
+「ニセモノ」という名前も結構気に入っている。
+
+動的言語の世界ではダックタイピングというものがある。
+「あるものがガーガー鳴くならそれはアヒルと見なして良い」というような発想のものである。
+「ホンモノ」だろうが「ニセモノ」だろうが関係ない。
+大事なのは「何をするか」であり「どう振る舞うか」である。
+「ホンモノ」なのか「ニセモノ」なのかそれは他人が勝手に貼るラベルである。
+
+ただ、自分自身は騙すことはできない。syrup 16gのニセモノを聞き直してそんなことを思った日曜の朝である。
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/15AO2gROtK4" frameborder="0" allowfullscreen></iframe>
+
+そろそろ、最後の休日出勤に向かう時間である。
