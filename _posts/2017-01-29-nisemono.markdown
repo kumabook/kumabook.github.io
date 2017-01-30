@@ -7,19 +7,23 @@ categories: javascripts
 
  前回[kumabook/yakusoku](https://github.com/kumabook/yakusoku)というPromiseライブラリを作った。
  これは業務でes3を書いていて困ったから作ったものである。
- もう一つ困っているものがあった。モックライブラリである。
- 現在JavaScriptでモックライブラリのデファクトは Sinon.JSである。
- テストフレームワークJasmine(もしくはそのフォークのJest)にはモックAPIが付属している。
- mochaを使っているので、まあSinon.JSが使うのが普通の流れだ。
+ もう一つ困っているものがあった。テスト用のモックライブラリである。
+ 現在JavaScriptでモックライブラリのデファクトは [Sinon.JS](http://sinonjs.org/)である。
+ テストフレームワーク[Jasmine](https://jasmine.github.io/)
+ (もしくはそのフォークの[Jest](https://facebook.github.io/jest/))にはモックAPIが付属している。
+ テストフレームワークとしては[mocha](https://mochajs.org/)を使っているので、まあSinon.JSが使うのが普通の流れだ。
  ただ、どうも実装が大きい。5000行ぐらいある。
  もっとシンプルでいいからサイズを小さくして欲しい。
  やはりNodeJS用のライブラリは富豪的である。
+ 
+ 
  というわけでシンプルなモックライブラリを作ることにした。
- どういうAPIにすべきか色々調べてみると、`testdouble.js`というのが割と流行り始めている気配を感じた。
+ どういうAPIにすべきか色々調べてみると、[testdouble.js](https://github.com/testdouble/testdouble.js/)というのが割と流行り始めている気配を感じた。
  早速APIを見てみると、確かになかなかスッキリしている。
  厳密にはspyとstubとmockの違うみたいなのだが、
  そうは言っても実際問題そんなに区別しなくて良いことも多い。
- `testdouble.js`のそこを区別しない思想に交換がもてる。
+ `testdouble.js`のそこを区別しない思想に好感がもてる。
+ 他にもドキュメントがやたらと教育的で勉強になる。
  なので、APIデザインは`testdouble.js`を参考にすることにした。
 
  2週間前の週末に大半の部分を実装して出来上がったのが [kumabook/nisemono](https://github.com/kumabook/nisemono)
