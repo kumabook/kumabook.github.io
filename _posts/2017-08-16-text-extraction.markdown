@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  HTMLの本文抽出についての調査
-date:   2018-08-16 21:24:03 +0900
+date:   2017-08-16 21:24:03 +0900
 categories: nlp
 ---
 
