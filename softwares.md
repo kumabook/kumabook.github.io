@@ -25,5 +25,9 @@ title: My softwares
 ## Library and tool
 * [FeedlyKit](https://github.com/kumabook/FeedlyKit)
   * Feedly Cloud API Client Library for swift
+* [readability](https://github.com/kumabook/readability)
+  * rust port of arc90 readability that has some improvements.
+  * [demo](https://readability-rs.herokuapp.com/web/index.html)
+  * [cli](https://github.com/kumabook/readability-rs/)
 * [chorreador](https://github.com/kumabook/chorreador)
   * chorreador is JavaScript based JavaScript profiler. This tool aims to analysis JavaScript on broswers that don't have native profiler such as "Chrome Developer Tool".
