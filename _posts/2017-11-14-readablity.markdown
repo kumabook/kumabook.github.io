@@ -2,7 +2,7 @@
 layout: post
 title:  本文抽出の続き
 date:   2017-11-14 20:44:42 +0900
-categories: event
+categories: rust, programming, nlp
 ---
 
 夏に取り組んでいた本文抽出の続き。
