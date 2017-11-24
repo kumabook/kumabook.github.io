@@ -1,0 +1,100 @@
+---
+layout: post
+title:  peco、helmっぽいwebextensionを作った
+date:   2017-11-25 01:23:48 +0900
+categories: webextension, programming
+---
+
+ 僕とvimperatorとの出会いは大学4年の時だった。
+ 大学の研究室に入った時は、僕はまだ全然プログラミングができなかった。
+ というかむしろPCの知識も他の学生に比べると乏しくて、
+ 正直情報系の学部の学生としては微妙な感じだった。
+ 一緒に研究室に所属したもう一人は学生の時から起業してたり、ICPCやなどでバリバリコード
+ 書いていたようなやつで、今はgoogler。とにかくレベルが違ったわけである。
+ そんな彼がvimperatorを使っていた。なんかもうとにかくかっこよく見えた。
+ 形からでも真似ていこうということでvimperator使い始めた。
+ かれこれ10年くらい使い続けていた。
+   結局、今回のFirefox Quantumアップデートでは完全に[vimpeator](とその後継の[pentadactyl]）はお逝きになった。
+   お逝きになることはわかっていたので、徐々に使わないようにしていて、
+   代替を探したり、webexntensionのAPIを眺めながらなんか自作できないかなーとぼんやり考えていた。今日見たらレポジトリだけ2016年4月に作っていた。
+
+  昨日祝日を丸々使って、[peco]とか[emacs helm]っぽい[webextension][bebop]を作った。
+  レポジトリは[ここ](https://github.com/kumabook/bebop)
+
+---------------------
+
+ 元ネタというか参考にしたものというか、開発のトリガーになったものがいくつかある
+
+
+#### [tridactyl]
+
+元会社の先輩が[tridactyl]っていうvimperatorの
+webexntesion版を見つけていて、それなりに動いていたので気になって中のソースを見てみた。
+
+- ショートカットはcontent scriptでdocumentにkeydownをキャプチャリングフェーズハンドリングして実現
+- UIはこれもcontent scriptでiframeをposition fixedで追加することで実現
+
+xul時代の実装の頃と比べると中々の力技だが、それなりに使えるのだから無問題である。
+意外と行けるかもという気がしてきた。
+ちなみにtridactylはtypescriptで書かれている素敵。
+
+
+#### [anchor]
+
+ pecoっぽくインクリメンタルサーチできるchrome webextension
+ やりたいことはかなり似ていて正直先にやられた感があって悔しかった。
+ 最初はこれでいいじゃんとも思ったが、
+ firefoxで使えないAPIを少し使ってたり、firefoxへポートする感じはなさそう＋
+ 新しい機能が増える感じではなさそうだったので、
+ 住み分けできそうだと思い自作に踏み切った。
+ react + redux + redux-sagaを使っていて、その辺は結構参考になった。
+
+
+#### webxtensionへの知見が溜まったこと
+
+ 他のアドオンをwebextension対応して、色々知見が溜まったのがでかかった。
+ webpack + react + redux + redux-saga使うとかは、自分の中で勝ちパターン化している。
+ 特に[content scriptとbackground scriptのメッセージパッシング]を
+ [redux-sagaのChannel]で
+ [実装したところ](https://github.com/kumabook/bebop/blob/master/src/utils/port.js#L18)
+ とかはかなり気に入っている。
+
+
+---------------------
+
+ 昨日１日で最小限な機能を作った。
+
+ - Ctrl+Commaでcli起動
+   - このキーに落ち着くまでに紆余曲折あった
+ - 以下のコマンドを絞り込み
+   - タブ移動
+   - 履歴
+   - ブックマーク
+ - カーソル移動系のemacsキーバインディング
+
+これからは、`Hit-a-Hint`みたいなリンクをキーボードだけで開けるやつとか
+vimperatorにあって便利だなと思った機能をできる範囲でコマンドとして追加していきたい。
+さしあたって先輩にvimキーバインド欲しいって言われたので実装しよう。
+
+
+----------------------
+
+ 最近trelloでTODO管理をしていたのだが、
+ 本当に楽しい作業している時はTODO管理とかまじでどうでもよくなる。
+ 逆に仕事っぽい作業している時はTODO管理をしていったほうが、やってる感が出てきて良い。
+ 日付ごとにリストを作っているのだが、これの良いところは、やっぱり明日やろうみたいなのがサクサクできるのと、カードを作るのを忘れた時に後からつくれること。
+ TODO管理というよりはログに近いかもしれないが、後から振り返って作業の割合がどうなっているか、スループットどんなものかをざっくり見れるのが良い。
+  コーディングが楽しくてTODO管理がどうでもよくなったり、
+  時間を忘れたりする状態があるうちはプログラマっとして戦える、
+  そんな気がする。
+
+
+[vimpeator]: https://www.google.co.jp/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwi2y4HB2NfXAhWDxLwKHYnxBvMQFggpMAA&url=https%3A%2F%2Faddons.mozilla.org%2Fja%2Ffirefox%2Faddon%2Fvimperator%2F&usg=AOvVaw172Ra2ibIm3ujU2N7ylMwA
+[pentadactyl]: https://www.google.co.jp/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwiDz_zL2NfXAhVMULwKHWRWBugQFggpMAA&url=https%3A%2F%2Faddons.mozilla.org%2Fja%2Ffirefox%2Faddon%2Fpentadactyl%2F&usg=AOvVaw0HZyi60ERRhoKS5T7Hmm7X
+[bebop]: https://github.com/kumabook/bebop
+[emacs helm]: https://github.com/emacs-helm/helm
+[peco]: https://github.com/peco/peco
+[tridactyl]: https://github.com/cmcaine/tridactyl
+[anchor]: https://github.com/questbeat/anchor
+[content scriptとbackground scriptのメッセージパッシング]: https://developer.mozilla.org/ja/Add-ons/WebExtensions/Content_scripts#Communicating_with_background_scripts
+[redux-sagaのChannel]: https://github.com/redux-saga/redux-saga/blob/master/docs/advanced/Channels.md
