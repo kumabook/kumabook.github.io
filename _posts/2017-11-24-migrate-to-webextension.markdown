@@ -33,7 +33,7 @@ firefoxのアドオン [stickynotes](https://addons.mozilla.org/ja/firefox/addon
  なんという優しい世界。
 
 
- Androidも対応も流れでやった。
+ Androidへの対応も流れでやった。
  iOSはアドオンの仕組みがないので、代わりに[アプリ版](https://itunes.apple.com/us/app/sticky-notes-put-a-sticky-on-your-web/id992415126?l=es&mt=8)を出している。
  chrome, Edge, Operaも対応すれば、
  Desktop 3ブラウザとandroid, iOSでデータが共有できるので なかなか便利な気がする。
