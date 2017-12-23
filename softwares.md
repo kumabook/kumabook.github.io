@@ -11,6 +11,8 @@ title: My softwares
   - [Web Site](http://musicfav.github.io/)
   - [App store](https://itunes.apple.com/us/app/musicfav/id957250852?l=ja&ls=1&mt=8/)
   - [Source](https://github.com/kumabook/MusicFav)
+- <img src="https://github.com/kumabook/StickyNotesiOS/blob/master/StickyNotes/Assets.xcassets/AppIcon.appiconset/Icon-Small@3x.png?raw=true" width="64"> StickyNotes
+  - [Product page](http://kumabook.github.io/stickynotes/)
 
 ## WebExtensions
 - ![Sticky Notes](https://addons.cdn.mozilla.net/user-media/addon_icons/107/107189-64.png?modified=1404840808) Stikynotes
