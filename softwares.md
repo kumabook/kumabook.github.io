@@ -21,7 +21,7 @@ title: My softwares
   - Show LGTM images from lgtm.in/g. Copy markdown text to clipboard or input pull request textarea
   - [Addon site](https://addons.mozilla.org/ja/firefox/addon/lgtm-for-firefox/)
   - [Source](https://github.com/kumabook/lgtm-for-firefox)
-- ![bebop](https://github.com/kumabook/bebop/raw/master/bebop.png)
+- ![bebop](https://addons.cdn.mozilla.net/user-media/addon_icons/888/888401-64.png?modified=1514046022)
   - bebop is a WebExtensions that offers command line interface like emacs helm for browsing.
   - [For firefox](https://addons.mozilla.org/ja/firefox/addon/bebop/)
   - [For chrome](https://chrome.google.com/webstore/detail/bebop/idiejicnogeolaeacihfjleoakggbdid)
