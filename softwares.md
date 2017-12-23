@@ -12,7 +12,7 @@ title: My softwares
   * [App store](https://itunes.apple.com/us/app/musicfav/id957250852?l=ja&ls=1&mt=8/)
   * [Source](https://github.com/kumabook/MusicFav)
 
-## Firefox addon
+## WebExtensions
 * ![Sticky Notes](https://addons.cdn.mozilla.net/user-media/addon_icons/107/107189-64.png?modified=1404840808) Stikynotes
   * Sticky Notes is a firefox addon that enable firefox to put sticky to web page.
   * [Addon site](https://addons.mozilla.org/ja/firefox/addon/sticky-notes/)
@@ -21,10 +21,19 @@ title: My softwares
   * Show LGTM images from lgtm.in/g. Copy markdown text to clipboard or input pull request textarea
   * [Addon site](https://addons.mozilla.org/ja/firefox/addon/lgtm-for-firefox/)
   * [Source](https://github.com/kumabook/lgtm-for-firefox)
+* ![bebop](https://github.com/kumabook/bebop/raw/master/bebop.png)
+  * bebop is a WebExtensions that offers command line interface like emacs helm for browsing.
+  * [For firefox](https://addons.mozilla.org/ja/firefox/addon/bebop/)
+  * [For chrome](https://chrome.google.com/webstore/detail/bebop/idiejicnogeolaeacihfjleoakggbdid)
+  * [Source](https://github.com/kumabook/bebop)
 
 ## Library and tool
 * [FeedlyKit](https://github.com/kumabook/FeedlyKit)
   * Feedly Cloud API Client Library for swift
+* [spread_beaver](https://github.com/kumabook/spread_beaver)
+  * Feedly Cloud API compatible application server written in ruby on rails
+* [pink_spider](https://github.com/kumabook/pink_spider)
+  * RSS crawler written in rust
 * [readability](https://github.com/kumabook/readability)
   * rust port of arc90 readability that has some improvements.
   * [demo](https://readability-rs.herokuapp.com/web/index.html)

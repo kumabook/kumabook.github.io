@@ -7,12 +7,19 @@ Hiroki Kumamoto
 
 
 
-I'm a software enginner.
+I'm a software engineer based in tokyo.
 Things I'm good at:
 
 - Mobile application developing
 - Frontend JavaScript programming
-- C programming for emmbeded system
+- Ruby on Rails
+
+Now I'm stadying about:
+
+- rust
+- natural language processing
+- machine learning
+
 
 I create some software as a hobby. Please see [software page](./softwares.html).
 
