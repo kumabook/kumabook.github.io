@@ -18,9 +18,14 @@ categories: english
   多分正解なんだけど、テンションが上がらないみたいなことを行ったら、
   結構ディープなものを紹介してくれた。どれもシカゴのhiphop・R&Bみたい。
 
+  <img src="/assets/chicago_music.jpg" width="80%">
+
   - drake
   - outcast
   - common
+  - Lupe Fiasco
+  - J.cole
+
 
   あんまり明るくないジャンルだったけど英語の発音も綺麗らしいのでこれを機に聞いていこうと思う。
 
