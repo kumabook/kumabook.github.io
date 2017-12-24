@@ -10,9 +10,9 @@ Hiroki Kumamoto
 I'm a software engineer based in tokyo.
 Things I'm good at:
 
-- Mobile application developing
-- Frontend JavaScript programming
-- Ruby on Rails
+- iOS development with swift
+- Web frontend development with JavaScript,
+- Server side apllication development with Ruby on Rails
 
 Now I'm stadying about:
 
