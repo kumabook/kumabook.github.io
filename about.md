@@ -14,14 +14,17 @@ Things I'm good at:
 - Web frontend development with JavaScript,
 - Server side apllication development with Ruby on Rails
 
-Now I'm stadying about:
+Now I'm studying about:
 
 - rust
 - natural language processing
 - machine learning
 
 
-I create some software as a hobby. Please see [software page](./softwares.html).
+I create some software as a hobby.
+
+- The list of my softwares is here [software page](./softwares.html).
+- My tech talks is [here](https://kumabook.github.io/slides)
 
 And I'm playing the drums at:
 
