@@ -40,5 +40,13 @@ title: My softwares
   - rust port of arc90 readability that has some improvements.
   - [demo](https://readability-rs.herokuapp.com/web/index.html)
   - [cli](https://github.com/kumabook/readability-rs/)
+- [feed-rs](https://github.com/kumabook/feed-rs)
+  - A simple RSS feed parser (rss 2.0, ATOM, rss 1.0) written in rust
+- [opengraph](https://github.com/kumabook/opengraph)
+  - rust library that parses html and extracts Open Graph protocol markup
+- [yakusoku](https://github.com/kumabook/yakusoku)
+  - Simple and light-weight promise implementation that works in es3
+- [nisemono](https://github.com/kumabook/nisemono)
+  - Pretty simple mock library for javascript
 - [chorreador](https://github.com/kumabook/chorreador)
   - chorreador is JavaScript based JavaScript profiler. This tool aims to analysis JavaScript on broswers that don't have native profiler such as "Chrome Developer Tool".
