@@ -1,0 +1,155 @@
+---
+layout: post
+title:  "iOS 11 Programming刊行記念 Nightレポート"
+date:   2018-02-02 17:00:28 +0900
+categories: programming
+---
+
+少し遅れてしまいましたが、
+2018/1/10に[iOS 11 Programming刊行記念 Night](https://peaks.connpass.com/event/74553/)に行ってきました。
+
+タイトルの通り
+[iOS 11 Programming] という本のイベントで
+著者の方々がLTしてくれるナイスなイベントでした。
+この日のために京都やアメリカから駆けつけてくれた方もいたそうです。
+また、会場を提供してくれたスマートニュースさんのLTと
+パネルディスカッションもありました。
+自分はブログ枠で参加させてもらったので、
+LTとパネルディスカッションそれぞれについて、僕の感想も交えつつレポートします。
+
+
+## LT
+
+### 技術書のジレンマとPEAKS + 書評ブログを書くTips
+
+ [@shu223](https://twitter.com/shu223) さんは[iOS 11 Programming]では、
+ ARKitを担当されていらっしゃいましたが、 LTではiOSについてではなく技術書業界についてのお話でした。
+  傍から見たら技術書を書いてる方たちはキラキラしていてウハウハなのかと思っていましたが、そうでもないのですね。。。
+  かなり赤裸々な内容だと思いましたが、PEAKSさんに対する期待も感じられて非常にエモいLTでした。
+  書評ブログを書くtipsも参考になりました。
+
+  - 「読み始めるために書く」
+  - 「本から何を学ぶか」
+  - 「記事の大枠を先に書く」
+
+
+  積ん読しがちなので、非常に参考になりました。
+
+  <script async class="speakerdeck-embed" data-id="3fe6fb8834c54b00bf93751ef32f530c" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+
+### サルにはわからないCore ML 〜 最適化
+
+[@sonson_twit] さんは、
+[iOS 11 Programming]でも紹介していたMachine Learningのお話でした。
+[iOS 11 Programming]のMLの説明は本当にわかりやすいなと自分は感じていて、
+これをきっかけに僕はMLの勉強し始めたので、おすすめです。
+今回のLTもML初心者向けにわかりやすく最適化について説明してくれていました。何より
+[@sonson_twit]さんの飾らないトークが面白いですね。
+ 個人的には[@sonson_twit]に機械学習の本をPEAKSで書いて欲しいなと思ってます。
+
+
+### Swift 4.1 and Swift 5
+
+[@ikesyo]さんは[iOS 11 Programming]ではSwift 4の新機能について書かれていましたが、
+LTではその先Swift4.1とSwift5について話されていらっしゃいました。
+怒涛のスピードで新機能を紹介していらっしゃって頭フル回転のLTでした。
+自分のリリース前の最新仕様を追っかけてない人にとっては、最新仕様の背景含めて説明していただけるのはすごく勉強になります。
+
+
+<script async class="speakerdeck-embed" data-id="5321e4cc59aa4a0094702b180b195beb" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+
+
+### シミュレータの録画が面倒なのでどうにかしてみた
+
+[@huin]さんは[iOS 11 Programming]ではXcode 9 の新機能について書かれていらっしゃいました。
+今回はシミュレータの録画を簡単にできるコマンドラインツールの紹介でした。
+ツールは[simio](https://github.com/huinme/simio)として公開されていました。
+こうやってswiftでサクッとコマンドラインツールを作れる時代なったのは良いですね。
+
+
+
+<script async class="speakerdeck-embed" data-id="a9eeee76d05d4ac89af6af0823ece9cb" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+
+
+### コマンド+V iOS 11 pasting
+
+[@cockscomb]さんは[iOS 11 Programming]では、Drag and Drop・FilesとDocument Based Application
+について書かれていましたが、LTでは、macOS用のAppKitも含めたペーストについて話していらっしゃいました。
+Responder Chainの話なんかはiOS始めた頃にドキュメントを読んでしばらく読んでいなかったので、
+良い復習できて、かつフレームワーク側の設計の理解が重要ということを思い出させてくれる内容だったなと思いました。
+AppKitとUIKitは似ているとのことで、確かに今後の流れが気になりますね。
+
+
+### Presentation with Coordinators
+
+[@ykawanabe]さんは[iOS 11 Programming]では、レイアウト関連の新機能及び変更点について書かれていらっしゃいました。iOSのセーフエリアもそうですが、
+スクロールビューのcontentInsetとかの細かい変更を追いきれてなかったので、
+個人的にはこの章はすごく参考になりました。
+
+LTではNimaのアプリをリニューアルした時の話をしていらっしゃいました。
+Coordicatorパターンというのを知らなくて、聞いている時にはぼんやりした理解しかできませんでした。
+以下あたりが参考資料になりそうです。
+
+- [Presenting Coordinators](https://vimeo.com/144116310)
+- [Boundaries in Practice](https://academy.realm.io/posts/tryswift-ayaka-nonaka-boundaries-in-practice/)
+- [coordinators-essential-tutorial](https://medium.com/blacklane-engineering/coordinators-essential-tutorial-part-i-376c836e9ba7)
+
+Coordinatorsパターン、try! swift 2016でも紹介されてたみたいですが、記憶に残っていなかった。。
+
+<script async class="speakerdeck-embed" data-id="64142d5e7ce94a0c94565f6d3856146c" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+
+
+### iphone X 対応ライブコーディング
+
+[@k_katsumi]さんは[iOS 11 Programming]では、Core NFCやPDF Kit、SiriKitについて書いていらっしゃいました。
+今回は、[iOS 11 Programming]のサンプルコードをiphone X 対応させるライブコーディングでした。
+ 印象に残ったのは、まずはiphone X対応が必要なものをデザイン面で違和感を感じる感覚が必要
+ というところでした。appleの公式アプリを参考にするのが良いとのことでした。
+ ただ、appleの公式アプリでも癖のあるアプリ(メモアプリとか)はあるので、より標準っぽいアプリを参考にすると良いみたいです。App Storeアプリとかがいいみたいです。
+
+
+
+### Xcodeで値を表示する
+
+スマニューAppチームのLTは「Xcodeで値を表示する」。
+lldbで変数の値が見れないことがあったらしく、デバッガ内部の挙動を調べたそうです。
+LLDB in LLDB はかなり強い。
+デバッガで値表示されないことたまにあったけど、諦めてたのでこのやり方を知っていれば
+すごく時間が短縮されたかもしれないなと思いました。
+
+
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/w73qGDOMtc99QJ" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/firewood/xcode-85966188" title="Xcodeで値を表示する" target="_blank">Xcodeで値を表示する</a> </strong> from <strong><a href="https://www.slideshare.net/firewood" target="_blank">firewood</a></strong> </div>
+
+
+## パネルディスカッション
+
+ LTのあとは、著者8人＋発言したい人が前に出て話すというアナーキーかつアットホームなスタイルのパネルディスカッションでした。
+ この辺から僕のPCの電源が切れてしまい詳細なメモが取れなかったのですが、
+ アプリをリニューアルすべきかどうか話が異常な盛り上がりを見せていました。
+ [@k_katsumi]さんのご意見番感と
+ [@sonson_twit]さんのぶっちゃけトークを引き出してやろう感が最高でした。
+ あと、[@shu223]さんが「ソースコードが気に入らなかったのは、会社に馴染んでなかったから」
+ みたいなことをおっしゃっていて、非常に印象的にでした。
+
+
+## まとめ
+
+ 著者の方々次々とLTしてくださるのは、お祭り感があって非常に楽しかったです。
+ パネルディスカッションがめちゃくちゃ面白くて永遠に続けって思ったので、
+ ぜひまた同じようなイベントを見てみたいなと思いました。
+
+ 最後に、iOS 11 Programmingは満遍なく最新のiOS 11の機能がサンプル付きでわかりやすく紹介されているのでおすすめです。
+ 特にARKitのサンプルは非常によくできていると思うので、それだけでも買う価値があると思います。
+
+ <div class="peaks_widget" style="overflow:hidden; padding:20px; border:2px solid #ccc;"><div class="peaks_widget__image" style="float:left; margin-right:15px; line-height:0;"><a target="_blank" id="purchase" href="https://peaks.cc/kumabook/iOS11"><img alt="iOS 11 Programming" style="border:none; max-width:140px;" src="https://s3-ap-northeast-1.amazonaws.com/peaks-images/project002_cover.jpg"></a></div><div class="peaks_widget__info"><p style="margin:0 0 3px 0; font-size:110%; font-weight:bold;"><a target="_blank" id="purchase" href="http://peaks.cc/kumabook/iOS11">iOS 11 Programming</a></p><ul style="margin:0; padding:0;"><li style="font-size:90%; list-style:none;"><span>著者：</span><span>堤 修一,</span><span>吉田 悠一,</span><span>池田 翔,</span><span>坂田 晃一,</span><span>加藤 尋樹,</span><span>川邉 雄介,</span><span>岸川 克己,</span><span>所 友太,</span><span>永野 哲久,</span><span>加藤 寛人,</span></li><li style="font-size:90%; list-style:none;">製本版,電子版</li><li style="font-size:90%; list-style:none;"><a target="_blank" id="purchase" style="text-decoration:underline; color:#1DA1F2;" href="http://peaks.cc/kumabook/iOS11">PEAKSで購入する</a></li></ul></div></div>
+
+
+
+[iOS 11 Programming]: https://peaks.cc/kumabook/iOS11
+[@shu223]: https://twitter.com/shu223
+[@sonson_twit]: https://twitter.com/sonson_twit
+[@ikesyo]: https://twitter.com/ikesyo
+[@huin]: https://twitter.com/huin
+[@cockscomb]: https://twitter.com/cockscomb
+[@ykawanabe]: https://twitter.com/ykawanabe
+[@k_katsumi]: https://twitter.com/k_katsumi
