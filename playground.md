@@ -21,5 +21,7 @@ title: Playground
 * heap sort
 ### Symbol Tables
 
-### Graph
+### Others
+
+* [Seam Curver](./playground/index.html#seam-carver)
 
