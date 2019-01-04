@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Logic Pro Xで始める
+title:  Logic Pro Xことはじめ
 date:   2019-01-04 23:45:38 +0900
 categories: 
 ---
