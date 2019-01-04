@@ -9,8 +9,7 @@ categories:
 
  昔かって読まずじまいだったLogic Pro Xの本を消化しに行っている。
 
-<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="https://rcm-fe.amazon-adsystem.com/e/cm?ref=tf_til&t=kumabook08-22&m=amazon&o=9&p=8&l=as1&IS1=1&detail=1&asins=4845625504&linkId=3a52d37352e042042d3154f886a10da1&bc1=000000&lt1=_blank&fc1=333333&lc1=0066c0&bg1=ffffff&f=ifr">
-    </iframe>
+ <a target="_blank"  href="https://www.amazon.co.jp/gp/product/4845625504/ref=as_li_tl?ie=UTF8&camp=247&creative=1211&creativeASIN=4845625504&linkCode=as2&tag=kumabook08-22&linkId=c6cd2996b3fcecd07c93ed6f3478dc2b"><img border="0" src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=JP&ASIN=4845625504&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=kumabook08-22" ></a><img src="//ir-jp.amazon-adsystem.com/e/ir?t=kumabook08-22&l=am2&o=9&a=4845625504" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 
  PART 7まであるのだが、PART 1-3基礎編で基礎的な音楽理論とLogicの使い方、PART 4-7は応用編で実際にデモ曲を作りましょうという流れ。
  基礎編の前半の音楽理論はだいたい知ってる内容が多かったのでサクサク読み進めた。
