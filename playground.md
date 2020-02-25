@@ -25,3 +25,5 @@ title: Playground
 
 * [Seam Curver](./playground/index.html#seam-carver)
 
+
+<button onclick="alert('test');">test</button>
